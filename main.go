@@ -14,8 +14,8 @@ import (
 func main() {
 	socks := flag.String("socks", "127.0.0.1:1081", "socks url")
 	port := flag.String("port", "8080", "port to listen")
-	quiet := flag.Bool("q", false, "silent the output")
-	version := flag.Bool("v", false, "show version.")
+	verbose := flag.Bool("v", false, "verbose")
+	version := flag.Bool("version", false, "show version.")
 
 	flag.Parse()
 
@@ -32,7 +32,7 @@ func main() {
 	}
 
 	proxy := goproxy.NewProxyHttpServer()
-	proxy.Verbose = *quiet
+	proxy.Verbose = *verbose
 	proxy.Tr.Dial = dialer.Dial
 
 	log.Fatal(http.ListenAndServe(":"+*port, proxy))

@@ -14,10 +14,11 @@ It may not directly connect to a socks server
 Usage of ./s2http:
   -port string
         port to listen (default "8080")
-  -q    silent the output
   -socks string
         socks url (default "127.0.0.1:1081")
-  -v    show version.
+  -v    verbose
+  -version
+        show version.
 ```
 
 end.  
