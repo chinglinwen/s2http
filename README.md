@@ -4,7 +4,9 @@ Convert socks proxy to a http proxy
 
 # Prerequisite
 
-A socks server listening
+A socks proxy(probably a client) is listening
+
+It may not directly connect to a socks server
 
 # Usage
 
