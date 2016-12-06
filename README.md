@@ -1,10 +1,10 @@
 # s2http
 
-Convert socks proxy to a http proxy
+Convert socks proxy to a http(s) proxy
 
 # Prerequisite
 
-A socks proxy(probably a client) is listening
+A socks proxy (probably a client) is listening
 
 It may not directly connect to a socks server
 
