@@ -21,4 +21,9 @@ Usage of ./s2http:
         show version.
 ```
 
+# Credits
+
+Inspired by [GopherFromHell](https://www.reddit.com/user/GopherFromHell),
+As he provided [the example](https://play.golang.org/p/l0iLtkD1DV)
+
 end.  
