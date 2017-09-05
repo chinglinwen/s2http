@@ -12,16 +12,17 @@ import (
 )
 
 func main() {
-	socks := flag.String("socks", "127.0.0.1:1081", "socks url")
+	socks := flag.String("socks", "127.0.0.1:1081", "socks url (default)")
 	port := flag.String("port", "8080", "port to listen")
+	pure := flag.Bool("pure", false, "pure http/https proxy without socks")
 	verbose := flag.Bool("v", false, "verbose")
 	version := flag.Bool("version", false, "show version.")
 
 	flag.Parse()
 
-	//Display version info
+	// Display version info.
 	if *version {
-		fmt.Println("version=1.0, 2016-12-5, by chinglinwen")
+		fmt.Println("version=1.1, 2017-9-5, by chinglinwen")
 		os.Exit(0)
 	}
 
@@ -33,7 +34,9 @@ func main() {
 
 	proxy := goproxy.NewProxyHttpServer()
 	proxy.Verbose = *verbose
-	proxy.Tr.Dial = dialer.Dial
+	if !*pure {
+		proxy.Tr.Dial = dialer.Dial
+	}
 
 	log.Fatal(http.ListenAndServe(":"+*port, proxy))
 }
